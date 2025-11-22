@@ -1,6 +1,13 @@
-# 🦁 Zoo Inheritance Project — Object-Oriented Design Practice
+# 🐾 Zoo Animal Behavior System — Interface-Based OOP Design
 
-A C++ project demonstrating classical **inheritance**, **polymorphism**, **safe casting**, and hierarchical object modeling with an `Animal` base class and multiple derived species.
+A C++ project demonstrating **behavior-driven modeling**, where animals are organized by the behaviors they can perform rather than traditional species inheritance. Behaviors such as flying, swimming, walking, or roaring are represented as **interfaces** (pure abstract classes), and each animal implements only the behaviors it naturally performs.
+
+This project showcases:
+
+- Interface-based polymorphism  
+- Composition over inheritance  
+- Flexibility to add new behaviors and species  
+- Clean separation between “what an animal is” and “what an animal can do”
 
 ---
 
@@ -8,10 +15,10 @@ A C++ project demonstrating classical **inheritance**, **polymorphism**, **safe 
 
 ├── main.cpp  
 ├── include/  
-│   ├── AnimalAbstractions.hpp   # Base class + Kind enum  
-│   └── Animals.hpp              # Derived classes and species declarations  
+│   ├── Behaviors.hpp  
+│   └── Animals.hpp  
 ├── src/  
-│   ├── AnimalAbstractions.cpp  
+│   ├── Behaviors.cpp  
 │   └── Animals.cpp  
 └── README.md
 
