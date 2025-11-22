@@ -6,79 +6,78 @@
 #include "AnimalAbstractions.hpp"
 
 
-class Lion : public Mammal {
-    private:
-        int m_roarPower;      // 1..10
+class Lion : public Animal, public IWalk, public IVoice, public IFeedable {
     public:
-        Lion(const std::string& name, int roarPower, Kind kind = Kind::Lion) 
-            : Mammal { name, kind }, m_roarPower { roarPower } {}
-        void printInfo() const;
-        void Roar() { std::cout << "Lion Roars with power" << m_roarPower << std::endl; }
+        Lion(const std::string& name) : Animal { name } {}
+        ~Lion() = default;
+    
+        void walk() override { std::cout << "Lion walking\n"; }
+        void voice() override { std::cout << "Lion voice\n"; }
+        void eat() override { std::cout << "Lion eating\n"; }
 };
 
-class Tiger : public Mammal {
-    private:
-        double m_jumpHeight;        // km/h
+class Tiger : public Animal, public IWalk, public IVoice, public IFeedable{
     public:
-        Tiger(const std::string& name, double jumpHeight, Kind kind = Kind::Tiger) 
-            : Mammal { name, kind }, m_jumpHeight { jumpHeight } {}
-        void printInfo() const;
-        void jump() { std::cout << "Tiger's jump height is " << m_jumpHeight << std::endl; }
+        Tiger(const std::string& name) : Animal { name } {}
+        ~Tiger() = default;
+
+        void walk() override { std::cout << "Tiger walking\n"; }
+        void voice() override { std::cout << "Tiger voice\n"; }
+        void eat() override { std::cout << "Tiger eating\n"; }
 };
 
-class Elephant : public Mammal {
-    private:
-        double m_trunkLength;
+class Elephant : public Animal, public IWalk, public IVoice, public IFeedable{
     public:
-        Elephant(const std::string& name, double trunkLength, Kind kind = Kind::Elephant)
-            : Mammal { name, kind }, m_trunkLength { trunkLength } {}
-        void printInfo() const;
-        void useTrunk() { std::cout << "Elephant uses its trunk" << std::endl; }
+        Elephant(const std::string& name) : Animal { name } {}
+        ~Elephant() = default;
+
+        void walk() override { std::cout << "Elephant walking\n"; }
+        void voice() override { std::cout << "Elephant voice\n"; }
+        void eat() override { std::cout << "Elephant eating\n"; }
 };
 
-class Eagle : public Bird {
-    private:
-        double m_visionRange; // meters
+class Eagle : public Animal, public IFly, public IWalk, public IVoice, public IFeedable{
     public:
-        Eagle(const std::string& name, double wingSpan, double visionRange, Kind kind = Kind::Eagle)
-            : Bird { name, wingSpan, kind }, m_visionRange { visionRange } {}
-        void printInfo() const;
-        void Soar() { std::cout << "The Eagle soares into the air\n"; }
+        Eagle(const std::string& name) : Animal { name } {}
+        ~Eagle() = default;
+
+        void fly() override { std::cout << "Eagle flying\n"; }
+        void walk() override { std::cout << "Eagle walking\n"; }
+        void voice() override { std::cout << "Eagle voice\n"; }
+        void eat() override { std::cout << "Eagle eating\n"; }
 };
 
-class Parrot : public Bird {
-    private:
-        std::vector<std::string> m_vocabulary; // word it can "say"
+class Parrot : public Animal, public IFly, public IWalk, public IVoice, public IFeedable {
     public:
-        Parrot(const std::string& name, double wingSpan, const std::vector<std::string>& vocabulary, Kind kind = Kind::Parrot)
-            : Bird { name, wingSpan, kind }, m_vocabulary { vocabulary } {}
-        void printInfo() const;
-        void Speak() {
-            std::cout << "Parrot can say these words\n";
-            for (const std::string& word: m_vocabulary) {
-                std::cout << word << "\n";
-            }
-        };
+        Parrot(const std::string& name) : Animal { name } {}
+        ~Parrot() = default;
+
+        void fly() override { std::cout << "Parrot flying\n"; }
+        void walk() override { std::cout << "Parrot walking\n"; }
+        void voice() override { std::cout << "Parrot voice\n"; }
+        void eat() override { std::cout << "Parrot eating\n"; }
 };      
 
-class Snake : public Reptile {
-    private:
-        bool m_poisonous;
+class Snake : public Animal, public IWalk, public IVoice, public IFeedable {
     public:
-        Snake(const std::string& name, bool poisonous, Kind kind = Kind::Snake)
-            : Reptile { name, kind }, m_poisonous { poisonous } {}
-        void printInfo() const;
-        void Hiss() { std::cout << "Hissssssss" << std::endl; }
+        Snake(const std::string& name) : Animal { name } {}
+        ~Snake() = default;
+
+        void walk() override { std::cout << "Snake walking\n"; }
+        void voice() override { std::cout << "Snake voice\n"; }
+        void eat() override { std::cout << "Snake eating\n"; }
+
 };
 
-class Crocodile : public Reptile {
-    private:
-        int m_biteForce;
+class Crocodile : public Animal, public IWalk, public ISwim, public IVoice, public IFeedable {
     public:
-        Crocodile(const std::string& name, int biteForce, Kind kind = Kind::Crocodile)
-            : Reptile { name, kind }, m_biteForce { biteForce } {}
-        void printInfo() const;
-        void Snap() { std::cout << "The crocodile snaps with " << m_biteForce << "power" << std::endl; }
+        Crocodile(const std::string& name) : Animal { name } {}
+        ~Crocodile() = default;
+
+        void walk() override { std::cout << "Crocodile walking\n"; }
+        void swim() override { std::cout << "Crocodile swimming\n"; }
+        void voice() override { std::cout << "Crocodile voice\n"; }
+        void eat() override { std::cout << "Crocodile eating\n"; }
 };
 
 #endif /* ANIMALS_HPP */
