@@ -4,25 +4,43 @@
 
 int main() {
     
-    Lion* simba = new Lion { "simba", 8 };
-    Tiger* tony = new Tiger { "tony", 5 };
-    Elephant* ole = new Elephant { "ole", 30 };
-    Eagle* aquila = new Eagle { "aquila", 1.8, 300 };
-    std::vector<std::string> vocabulary { "Hello", "Bye", "Boooooo" };
-    Parrot* paro = new Parrot { "paro", 3.2, vocabulary };
-    Snake* sly = new Snake { "sly", true };
-    Crocodile* capo = new Crocodile { "capo", 5 };
+    Lion* lion = new Lion { "lion" };
+    Tiger* tiger = new Tiger { "tiger"};
+    Elephant* elephant = new Elephant { "elephant" };
+    Eagle* eagle = new Eagle { "eagle" };
+    Parrot* parrot = new Parrot { "parrot" };
+    Snake* snake = new Snake { "snake" };
+    Crocodile* crocodile = new Crocodile { "crocodile" };
     std::vector<Animal*> animals;
 
-    animals.push_back(simba);
-    animals.push_back(tony);
-    animals.push_back(ole);
-    animals.push_back(aquila);
-    animals.push_back(paro);
-    animals.push_back(sly);
-    animals.push_back(capo);
+    animals.push_back(lion);
+    animals.push_back(tiger);
+    animals.push_back(elephant);
+    animals.push_back(eagle);
+    animals.push_back(parrot);
+    animals.push_back(snake);
+    animals.push_back(crocodile);
 
     for (Animal* animal: animals) {
-        animal->print();
+        std::cout << "\n";
+
+        if (IFly* ptr = dynamic_cast<IFly*>(animal)) { ptr->fly(); std::cout << "\n"; }
+
+        if (ISwim* ptr = dynamic_cast<ISwim*>(animal)) { ptr->swim(); std::cout << "\n"; }
+
+        if (IWalk* ptr = dynamic_cast<IWalk*>(animal)) { ptr->walk(); std::cout << "\n";}
+
+        if (IVoice* ptr = dynamic_cast<IVoice*>(animal)) { ptr->voice(); std::cout << "\n"; }
+
+        if (IFeedable* ptr = dynamic_cast<IFeedable*>(animal)) { ptr->eat(); std::cout << "\n"; }
+
     }
+
+    delete lion;
+    delete tiger;
+    delete elephant;
+    delete eagle;
+    delete parrot;
+    delete snake;
+    delete crocodile;
 }
